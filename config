@@ -1,9 +1,8 @@
-IMG_NAME=umbrel-os
-TARGET_HOSTNAME=umbrel
+IMG_NAME=nginx-proxy-ps
+TARGET_HOSTNAME=nginx
 TIMEZONE_DEFAULT="Etc/UTC"
-FIRST_USER_NAME=umbrel
-FIRST_USER_PASS=moneyprintergobrrr
+FIRST_USER_NAME=nginx
+FIRST_USER_PASS=reverseproxygobrrr
 ENABLE_SSH=1
-BUILD_SCRIPTS="Umbrel OS official build scripts"
-BUILD_SCRIPTS_REPO="https://github.com/getumbrel/umbrel-os"
-UMBREL_VERSION=0.3.10
+BUILD_SCRIPTS="Build scripts"
+BUILD_SCRIPTS_REPO="https://github.com/AaronDewes/nginx-proxy-os"
