@@ -43,20 +43,3 @@ rsync --quiet --archive --partial --hard-links --sparse --xattrs /nginx "${ROOTF
 on_chroot << EOF
 chown -R ${FIRST_USER_NAME}:${FIRST_USER_NAME} /home/${FIRST_USER_NAME}/nginx/
 EOF
-
-# Bundle nginx's Docker images
-echo "Pulling nginx's Docker images..."
-echo
-cd /nginx
-IMAGES=$(grep '^\s*image' docker-compose.yml | sed 's/image://' | sed 's/\"//g' | sed '/^$/d;s/[[:blank:]]//g' | sort | uniq)
-echo
-echo "Images to bundle: $IMAGES"
-echo
-
-while IFS= read -r image; do
-    docker pull --platform=linux/arm64 $image
-done <<< "$IMAGES"
-
-# Copy the entire /var/lib/docker directory to image
-mkdir -p ${ROOTFS_DIR}/var/lib/docker
-rsync --quiet --archive --partial --hard-links --sparse --xattrs /var/lib/docker ${ROOTFS_DIR}/var/lib/
