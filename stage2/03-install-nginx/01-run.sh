@@ -9,7 +9,7 @@
 echo "Installing Docker and Docker Compose..."
 echo
 on_chroot << EOF
-apt-get install docker -y
+apt-get install docker.io -y
 usermod -a -G docker $FIRST_USER_NAME
 pip3 install docker-compose
 EOF
