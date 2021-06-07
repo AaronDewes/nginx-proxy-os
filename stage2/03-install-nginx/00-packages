@@ -4,3 +4,4 @@ jq
 python3-qrcode
 unattended-upgrades
 libffi-dev libssl-dev
+python3-pip
